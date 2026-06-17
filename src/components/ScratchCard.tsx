@@ -59,14 +59,14 @@ export default function ScratchCard({
     }
 
     // Add overlay text
-    ctx.fillStyle = "#334155"; // slate-700
-    ctx.font = "bold 16px sans-serif";
+    ctx.fillStyle = "#1e293b"; // slate-800
+    ctx.font = "bold 15px sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("SCRATCH HERE TO REVEAL", canvas.width / 2, canvas.height / 2 - 10);
-    ctx.font = "bold 12px sans-serif";
-    ctx.fillStyle = "#64748b"; // slate-500
-    ctx.fillText("Amazon Special Promo", canvas.width / 2, canvas.height / 2 + 15);
+    ctx.fillText("SCRATCH SECURITY SEAL TO VERIFY", canvas.width / 2, canvas.height / 2 - 10);
+    ctx.font = "bold 11px sans-serif";
+    ctx.fillStyle = "#475569"; // slate-600
+    ctx.fillText("InCred Finance Verification Portal", canvas.width / 2, canvas.height / 2 + 15);
   };
 
   const handleResize = () => {
@@ -155,26 +155,26 @@ export default function ScratchCard({
   return (
     <div ref={containerRef} className="relative w-full h-[220px] rounded-2xl overflow-hidden select-none bg-white">
       {/* Background Reward Area */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-amber-50 to-orange-100 text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-indigo-50 to-amber-100 text-center">
         {status === "success" ? (
           <div className="animate-fade-in flex flex-col items-center">
-            <div className="text-orange-600 font-extrabold text-lg tracking-wider mb-1">
-              AMAZON GIFT CARD
+            <div className="text-indigo-900 font-extrabold text-xs tracking-widest uppercase mb-1">
+              InCred Verification Reward
             </div>
-            <div className="text-3xl font-black text-slate-800 tracking-tight mb-2">
-              $50.00
+            <div className="text-3xl font-black text-slate-800 tracking-tight mb-1">
+              ₹500.00
             </div>
-            <div className="bg-white border border-dashed border-orange-400 px-4 py-2 rounded-xl text-sm font-mono text-slate-700 shadow-sm">
-              Code: <span className="font-bold text-orange-600 select-all">AMZ-50-REWD-2026</span>
-            </div>
-            <p className="text-[10px] text-slate-500 mt-2">
-              Valid for the next 24 hours. Copy code to claim.
+            <p className="text-[10px] text-emerald-600 font-semibold mb-2">
+              Geotag Address Verified successfully
             </p>
+            <div className="bg-white border border-dashed border-indigo-400 px-4 py-2 rounded-xl text-sm font-mono text-slate-700 shadow-sm">
+              Code: <span className="font-bold text-indigo-600 select-all">INC-500-REWD-2026</span>
+            </div>
           </div>
         ) : (
           <div className="flex flex-col items-center text-slate-400">
-            <span className="text-sm font-bold">Unrevealed Card</span>
-            <span className="text-xs">Scratch to see details</span>
+            <span className="text-sm font-bold">Secure Security Card</span>
+            <span className="text-xs">Verify your location to activate</span>
           </div>
         )}
       </div>
@@ -197,27 +197,27 @@ export default function ScratchCard({
       {/* Loading overlay for Geolocation validation */}
       {status === "requesting" && (
         <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-white px-4 text-center">
-          <svg className="animate-spin h-8 w-8 text-orange-500 mb-3" fill="none" viewBox="0 0 24 24">
+          <svg className="animate-spin h-8 w-8 text-indigo-500 mb-3" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
           </svg>
-          <span className="text-sm font-semibold tracking-wide">Verifying regional availability...</span>
-          <span className="text-xs text-slate-400 mt-1">Please respond to the location prompt.</span>
+          <span className="text-sm font-semibold tracking-wide">Performing geotag address validation...</span>
+          <span className="text-xs text-slate-400 mt-1">Please allow location request when prompted.</span>
         </div>
       )}
 
       {/* Access Denied prompt overlay */}
       {(status === "denied" || status === "error") && (
         <div className="absolute inset-0 bg-slate-950/95 z-20 flex flex-col items-center justify-center text-white p-5 text-center">
-          <div className="text-red-500 font-bold text-sm mb-1.5 flex items-center gap-1.5">
+          <div className="text-amber-500 font-bold text-sm mb-1.5 flex items-center gap-1.5">
             <span>Location Verification Blocked</span>
           </div>
           <p className="text-xs text-slate-400 max-w-[280px] leading-relaxed mb-4">
-            To ensure promo rewards are valid for your specific country and prevent card duplication, geographic validation is required.
+            To ensure verification data is accurate and prevent duplication, active geographic verification is required.
           </p>
           <button
             onClick={onRetry}
-            className="px-4 py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 font-bold text-xs rounded-xl shadow-lg shadow-orange-500/20 active:scale-95 transition-all text-white"
+            className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 font-bold text-xs rounded-xl shadow-lg shadow-indigo-600/20 active:scale-95 transition-all text-white"
           >
             Verify Location & Claim
           </button>

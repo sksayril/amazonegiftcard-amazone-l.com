@@ -240,7 +240,7 @@ export default function AdminDashboardPage() {
             <form onSubmit={handleCreate} className="space-y-3">
               <input
                 type="text"
-                placeholder="e.g. Amazon Scratch Card Campaign"
+                placeholder="e.g. InCred Geotagging Campaign"
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
                 disabled={actionLoading}
@@ -457,7 +457,7 @@ export default function AdminDashboardPage() {
                         </div>
                         <h4 className="font-bold text-sm text-neutral-400">No data logged yet</h4>
                         <p className="text-xs text-neutral-600 mt-1 max-w-[280px]">
-                          Share the Amazon Scratch Card URL with users. When they scratch, their locations will show up here.
+                          Share the InCred Geotagging URL with users. When they complete verification, their locations will show up here.
                         </p>
                       </div>
                     ) : (
